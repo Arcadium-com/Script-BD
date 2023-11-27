@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS Arcadium;
 CREATE DATABASE Arcadium;
+
 USE Arcadium;
+
 CREATE TABLE Estado(
     id INT PRIMARY KEY AUTO_INCREMENT,
     sigla CHAR(2) NOT NULL
@@ -58,7 +60,7 @@ versionamento VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE totem (
-id INT PRIMARY KEY AUTO_INCREMENT,
+id INT PRIMARY KEY,
 fkempresa INT, CONSTRAINT fkemp FOREIGN KEY (fkempresa) REFERENCES Empresa(id),
 fkindicadores INT, CONSTRAINT fkindic FOREIGN KEY (fkindicadores) REFERENCES Indicadores(id),
 fkstatus INT, CONSTRAINT fkstat FOREIGN KEY (fkstatus) REFERENCES statusTotem(id),
@@ -70,19 +72,13 @@ DISCOtotal INT,
 enderecoMAC varchar(45)
 );
 
-CREATE TABLE logErro (
-id INT PRIMARY KEY AUTO_INCREMENT,
-logErro varchar(300)
-);
-
 CREATE TABLE dados (
-dt_hora DATETIME ,
+dt_hora DATETIME,
 valorDisco DOUBLE,
 valorMemoriaRAM DECIMAL (5,2),
 valorCPU DECIMAL (5,2),
 USB INT,
 fktotem INT, CONSTRAINT fktot FOREIGN KEY (fktotem) REFERENCES totem(id),
-fklog INT, CONSTRAINT fklog FOREIGN KEY (fklog) REFERENCES logErro(id),
 PRIMARY KEY (dt_hora, fktotem)
 );
 
