@@ -26,6 +26,7 @@ PRIMARY KEY (dt_hora, fktotem)
 
 CREATE TABLE alerta (
 dtHoraAlerta DATETIME,
+dtHoraConclusaoAlerta DATETIME,
 fkTotem INT, CONSTRAINT fkTotemAlerta FOREIGN KEY (fkTotem) REFERENCES totem(id), 
 PRIMARY KEY (dtHoraAlerta, fkTotem)
 );
