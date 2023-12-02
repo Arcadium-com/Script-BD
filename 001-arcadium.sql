@@ -6,7 +6,6 @@ USE Arcadium;
 
 CREATE TABLE totem(
 id INT PRIMARY KEY,
-fksistemaoperacional INT, 
 dtInstalacao DATE,
 RAMtotal INT,
 CPUtotal DOUBLE,
