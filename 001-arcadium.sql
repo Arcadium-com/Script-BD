@@ -30,3 +30,10 @@ dtHoraConclusaoAlerta DATETIME,
 fkTotem INT, CONSTRAINT fkTotemAlerta FOREIGN KEY (fkTotem) REFERENCES totem(id), 
 PRIMARY KEY (dtHoraAlerta, fkTotem)
 );
+
+CREATE TABLE alertaSlack(
+id INT AUTO_INCREMENT,
+horaAlertaSlack TIME,
+fkTotem INT, CONSTRAINT fkTotemSlack FOREIGN KEY (fkTotem) REFERENCES totem(id),
+PRIMARY KEY(id, horaAlertaSlack, fkTotem)
+);
